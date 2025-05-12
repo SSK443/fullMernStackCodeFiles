@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+
+      
+    }
+    #button{
+      padding: 10px 20px;
+      background-color: red;
+      color: white;
+      border-radius: 5px;
+      border: none;
+    }
+    div{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      background-color: yellow;
+      height: fit-content;
+      padding: 20px;
+      width: 250px;
+    }
+  </style>
+</head>
+<body style="background-color: black;">
+  <button id="button">click me</button>
+  
+</body>
+<script>
+  const button=document.querySelector('#button');
+  const body=document.querySelector('body');
+  const container=document.createElement('div')
+
+  button.addEventListener('click',(event)=>{
+    const ajax=new XMLHttpRequest();
+    const apiUrl='https://fakestoreapi.com/products/1';
+    ajax.open('GET',apiUrl);
+
+
+ajax.onreadystatechange=()=>{
+  // console.log(ajax.readyState);
+if(ajax.readyState===4 && ajax.status===200){
+  const result= JSON.parse(ajax.responseText);
+  // console.log(result);
+container.innerHTML+=`
+<h1>${result.title}</h1>
+  <p>${result.description}</p>
+  <img src="${result.image}" alt="photo" width="200px">
+
+`;
+  body.appendChild(container)
+  button.style.display="none";
+}
+  
+}
+
+    ajax.send();
+
+  },false);
+  
+</script>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      min-height: 100vh;
+
+      display: flex;
+      justify-content: space-evenly;
+      align-items: flex-start;
+      margin: auto;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  </style>
+  <body></body>
+  <script>
+    fetch("https://jsonplaceholder.typicode.com/todos")
+      .then(function (data) {
+        return data.json();
+      })
+      .then(function (data1) {
+        data1.forEach((data) => {
+          const cards = document.createElement("div");
+          Object.assign(cards.style, {
+            height: "200px",
+            width: "200px",
+            textAlign: "center", // ✅ Use camelCase for CSS property
+            padding: "10px",
+            border: "2px solid blue", // ✅ Correct CSS border syntax
+            overflow: "hidden",
+          });
+          cards.innerHTML += `
+
+ <p>${data.userId}</p>
+  <h4>${data.title}</h4>
+
+`;
+          document.body.appendChild(cards);
+        });
+        console.log(data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .finally(function () {
+        console.log("done");
+      });
+  </script>
+</html>

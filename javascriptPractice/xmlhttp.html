@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #body {
+        min-height: 100vh;
+
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        margin: auto;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="body"></div>
+  
+  </body>
+  <script>
+    const body = document.querySelector("#body");
+//     const xml = new XMLHttpRequest();
+//     const url = "https://jsonplaceholder.typicode.com/posts";
+//     xml.open("GET", url);
+//     xml.onreadystatechange = function () {
+//       console.log(xml.readyState);
+//       if (xml.readyState === 4 && xml.status === 200) {
+//         const result = JSON.parse(this.response);
+//         console.log(result);
+        
+
+//         result.forEach((data) => {
+//           const cards = document.createElement("div");
+//         Object.assign(cards.style, {
+//           height: "200px",
+//           width: "200px",
+//           textAlign: "center", // ✅ Use camelCase for CSS property
+//           padding: "10px",
+//           border: "2px solid blue", // ✅ Correct CSS border syntax
+//           overflow:"hidden"
+//         });
+//           cards.innerHTML += `
+// <h4>ID: ${data.id}</h4>
+// <h2>${data.title}</h2>
+//  <p>${data.body}</p>
+// `;
+//  body.appendChild(cards);
+//         });
+
+       
+//       }
+//     };
+//     xml.send();
+
+const xml=new XMLHttpRequest();
+const url="https://fakestoreapi.com/products";
+xml.open("GET",url);
+xml.onreadystatechange=function(){
+  console.log(xml.readyState);
+  if(xml.readyState===4&&xml.status===200){
+    const result=JSON.parse(this.response)
+    console.log(result);
+    result.forEach((data)=>{
+
+      const cards=document.createElement('div');
+
+      Object.assign(cards.style,{
+          height: "200px",
+          width: "200px",
+          textAlign: "center", // ✅ Use camelCase for CSS property
+          padding: "10px",
+          border: "2px solid blue", // ✅ Correct CSS border syntax
+          overflow:"hidden"
+      })
+      cards.innerHTML+=`
+      
+        <p>${data.id}</p>
+    <img src="${data.image}" alt="photo" width=200>
+    <p>${data.description}</p>
+    <p>${data.rating.rate}</p>
+      
+      `
+      body.append(cards)
+    })
+    
+  }
+  
+}
+console.log();
+
+xml.send()
+  </script>
+</html>

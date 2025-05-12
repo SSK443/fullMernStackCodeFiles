@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+
+      #cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .card {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        text-align: center;
+        width: 200px;
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .card img {
+        width: 100%;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="button">Show result</button>
+    <div id="cards-container"></div>
+  </body>
+  <script>
+     const body=document.querySelector('body')
+       const cardsContainer = document.getElementById('cards-container');
+
+
+
+
+    document.getElementById('button').addEventListener('click',function(event){
+
+
+    const xhr=new XMLHttpRequest();
+    const apiUrl='https://jsonplaceholder.typicode.com/photos';
+    xhr.open('GET',apiUrl);
+    xhr.onreadystatechange=function(){
+      console.log(xhr.readyState);
+      if(xhr.readyState===4 && xhr.status===200){
+
+
+       let result= JSON.parse(this.responseText)
+    
+
+       result.slice(0,50).forEach((items)=>{
+        const card=document.createElement('div');
+        card.classList.add('card')
+       card.innerHTML+=`
+        
+      <h1>${items.title}</h1>
+    <p>${items.id}</p>
+    <img src="${items.thumbnailUrl}" alt="something wrong" >
+
+
+
+        `;
+
+        cardsContainer.appendChild(card)
+       })
+
+
+      }
+    }
+
+    xhr.send()
+
+
+
+    },false)
+  </script>
+</html>

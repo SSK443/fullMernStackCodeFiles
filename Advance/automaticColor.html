@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+   <h1>setInterval</h1>
+  <button id="start">start</button>
+  <button id="stop">stop</button>
+</body>
+<script>
+  const startBtn = document.querySelector('#start');
+const stopBtn = document.querySelector('#stop');
+let changeColor;
+
+function colorGener() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+// Optional: Check generated color in console
+console.log(colorGener());
+
+startBtn.addEventListener('click', function () {
+  if (changeColor) return; // Avoid multiple intervals
+  changeColor = setInterval(() => {
+    document.body.style.backgroundColor = colorGener();
+    console.log(colorGener());
+    
+  }, 1000);
+});
+
+stopBtn.addEventListener('click', function () {
+  clearInterval(changeColor);
+  changeColor = null;
+  document.body.style.backgroundColor='white';
+});
+
+</script>
+</html>

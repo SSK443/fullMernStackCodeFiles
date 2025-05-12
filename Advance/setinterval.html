@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>setInterval</h1>
+  <button id="start">start</button>
+  <button id="stop">stop</button>
+</body>
+<script>
+
+
+let timeInterval;
+document.querySelector("#start").addEventListener("click",function(){
+if(!timeInterval){
+    timeInterval=setInterval(()=>{
+console.log('hlo',Date.now());
+
+  },2000)
+}
+},false)
+document.querySelector("#stop").addEventListener("click",function(){
+if(timeInterval){
+  clearInterval(timeInterval)
+  timeInterval=null;
+}
+},false)
+
+</script>
+</html>

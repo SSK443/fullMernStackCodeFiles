@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1 id="title">hlo</h1>
+  <button>click here</button>
+</body>
+<script>
+ document.querySelector('button').addEventListener('click',function(){
+   clearTimeout(time)
+ },false)
+ function show(){
+   const p= document.createElement('p')
+   p.innerHTML="hlo baby";
+   document.body.appendChild(p)
+  }
+ const time= setTimeout(show,2000)
+</script>
+</html>

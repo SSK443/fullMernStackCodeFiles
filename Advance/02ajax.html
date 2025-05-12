@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>fgbmkobg</h2>
+</body>
+<script>
+
+  const ajax=new XMLHttpRequest(); // create a new api request use XMLHttpRequest
+  const url='https://fakestoreapi.com/products/1'; // url of api to be called
+  ajax.open('GET',url);//this is a readyState  open(). code =1.this means You’re ready to send it (you clicked “Order”)
+  ajax.onreadystatechange=function(){// onreadystatechange check status of readyState. readyState is from 1 to 4 . if we console we see readystate . 
+  console.log(  ajax.readyState);// console ready state
+const result=JSON.parse(  this.response) //"this" used to identify it used in function. json.parse is used because default api data is string we need convert it to object
+console.log(result.title);// finally result
+
+
+    
+  }
+ajax.send()
+</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      height: 300px;
+      width: 300px;
+      padding: 15px;
+      text-align: center;
+      border-radius: 5px ;
+      border: 2px solid blueviolet;
+    }
+    body{
+      display: flex;
+      justify-content: space-between;
+      align-items:self-start;
+      padding: 10px;
+      flex-wrap: wrap;
+      height: fit-content;
+      gap: 20px;
+
+    }
+  </style>
+</head>
+<body>
+  <h1>api imageCall</h1>
+</body>
+<script>
+  fetch("https://jsonplaceholder.typicode.com/photos")
+  .then(function(response){
+    // console.log(response);
+    return response.json()
+
+  }).then(function(result){
+    result.forEach((data)=>{
+  const cards=document.createElement('div')
+
+  cards.innerHTML+=`
+  
+
+  <h2>${data.title}</h2>
+  <p>${data.id}</p>
+  <img src="${data.url}" alt="image" width=300>
+
+  
+  `
+  document.body.appendChild(cards)
+})
+
+  }).catch(function(error){
+    console.log(error,'something went wrong');
+    
+  }).finally(function(){
+    console.log('promise fulfilled');
+    
+  })
+</script>
+</html>
