@@ -1,0 +1,51 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#calBox {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+  width: 260px;
+}
+
+#display {
+  width: 100%;
+  height: 50px;
+  font-size: 1.5rem;
+  text-align: right;
+  margin-bottom: 20px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.btn {
+  padding: 15px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background: #e0e0e0;
+  border: none;
+  border-radius: 5px;
+}
+
+.operator {
+  background: #ffb84d;
+}
+
+.equal {
+  grid-column: span 4;
+  background: #4CAF50;
+  color: white;
+}
