@@ -1,0 +1,84 @@
+/* Page background and center alignment */
+body {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+/* Main box that holds the to-do list */
+.toDoBox {
+  min-height: 20vh;
+  max-height: fit-content;
+  padding: 30px;
+  width: 400px;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+/* Input area styling */
+#input {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Task input box */
+#display {
+  flex: 1;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+/* Add button */
+#addBtn {
+  background-color: blue;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Task list (ul) styling */
+#taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+/* Task item (li) */
+li {
+  width: 100%;
+  padding: 10px 15px;
+  list-style-type: none;
+  background-color: #f0f0f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Delete/edit buttons inside li */
+li button {
+  padding: 8px 12px;
+  border: none;
+  color: white;
+  background-color: red;
+  border-radius: 5px;
+  cursor: pointer;
+}
