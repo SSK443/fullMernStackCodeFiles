@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+
+/* Custom styles for fine-tuning */
+input:focus, select:focus, button:focus {
+  outline: none;
+}

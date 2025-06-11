@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./output.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./img/favicon.ico" type="img/favicon.ico">
+
+<title>Task-Manager </title>
+  </head>
+  <body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="container mx-auto p-4 max-w-4xl">
+      <!-- Header -->
+      <header class="bg-white p-4 rounded-lg shadow-md mb-6 text-center">
+        <h1 class="text-3xl font-extrabold text-gray-900 tracking-tight">Task Management Dashboard</h1>
+      </header>
+      
+      <!-- Task Input Form -->
+      <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+        <form id="taskForm" class="flex flex-col sm:flex-row gap-3">
+          <input 
+            id="taskInput" 
+            type="text" 
+            class="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-gray-400" 
+            placeholder="Enter task..." 
+            required
+          >
+          <select 
+            id="categorySelect" 
+            class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
+          >
+            <option value="Work">Work</option>
+            <option value="Personal">Personal</option>
+            <option value="Urgent">Urgent</option>
+          </select>
+          <input 
+            id="dueDate" 
+            type="date" 
+            class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          >
+          <button 
+            id="addTask" 
+            type="submit" 
+            class="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-semibold"
+          >
+            Add Task
+          </button>
+        </form>
+      </div>
+      
+      <!-- Task List Container -->
+      <div id="taskList" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Placeholder card -->
+        <div class="bg-white p-4 rounded-lg shadow-md flex items-center justify-center h-32">
+          <p class="text-gray-500 font-medium">No tasks yet...</p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+</html>
