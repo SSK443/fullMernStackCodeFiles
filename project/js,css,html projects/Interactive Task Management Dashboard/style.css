@@ -5,3 +5,58 @@
 input:focus, select:focus, button:focus {
   outline: none;
 }
+@media (max-width: 640px) {
+  #taskForm input, #taskForm select, #taskForm button {
+    font-size: 0.875rem;
+  }
+}
+/* styles.css */
+@font-face {
+  font-family: 'Inter';
+  src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Glassmorphism effect for task cards (applied in script.js) */
+.task-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom focus ring for accessibility */
+input:focus, select:focus, button:focus {
+  outline: none;
+}
+
+/* Enhance button hover for Add Task */
+button:hover {
+  filter: brightness(1.05);
+}
+
+/* Dragging card style */
+.task-card[draggable="true"] {
+  cursor: grab;
+}
+
+.task-card[draggable="true"]:active {
+  cursor: grabbing;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem;
+  }
+}
